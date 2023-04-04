@@ -2,13 +2,13 @@ import React from "react";
 
 function Carousel() {
   return (
-    <div className="carousel w-full">
-      <div id="slide1" className="carousel-item relative w-full">
+    <div className="carousel w-full ">
+      <div id="slide1" className="carousel-item relative w-full ">
         <img
           src="https://media.licdn.com/dms/image/C5603AQF24YHWinOLlg/profile-displayphoto-shrink_400_400/0/1630937984574?e=1686182400&v=beta&t=pkCTURHXB9jBHdONRCCTB264j84bswb9oTuAaeuOTTk"
           className="w-full"
         />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 bg-none	">
           <a href="#slide4" className="btn btn-circle">
             ❮
           </a>
@@ -19,10 +19,10 @@ function Carousel() {
       </div>
       <div id="slide2" className="carousel-item relative w-full">
         <img
-          src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+          src="https://media.licdn.com/dms/image/C5603AQF24YHWinOLlg/profile-displayphoto-shrink_400_400/0/1630937984574?e=1686182400&v=beta&t=pkCTURHXB9jBHdONRCCTB264j84bswb9oTuAaeuOTTk"
           className="w-full"
         />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 bg-none	">
           <a href="#slide1" className="btn btn-circle">
             ❮
           </a>
@@ -33,10 +33,10 @@ function Carousel() {
       </div>
       <div id="slide3" className="carousel-item relative w-full">
         <img
-          src="/images/stock/photo-1414694762283-acccc27bca85.jpg"
+          src="https://media.licdn.com/dms/image/C5603AQF24YHWinOLlg/profile-displayphoto-shrink_400_400/0/1630937984574?e=1686182400&v=beta&t=pkCTURHXB9jBHdONRCCTB264j84bswb9oTuAaeuOTTk"
           className="w-full"
         />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 bg-none	">
           <a href="#slide2" className="btn btn-circle">
             ❮
           </a>

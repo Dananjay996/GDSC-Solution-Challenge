@@ -73,18 +73,16 @@ export default function Contribute({ PATH_ROUTE }) {
         <title>Ocean Trash Detection</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Ocean Trash Detection</h1>
-
-        <form onSubmit={handleSubmit}>
+      <div className="card card-compact w-96 bg-base-100 shadow-xl ocean-gradient">
+        <form onSubmit={handleSubmit} className="card-body">
+          <h2 className="card-title">Ocean Trash Detection</h2>
           <label>
             Video:
             <input
               type="file"
               accept="video/*"
               onChange={(e) => setVideo(e.target.files[0])}
-              className="file-input w-full max-w-xs"
+              className="file-input w-full max-w-xs input-bordered input-info"
             />
           </label>
 
@@ -94,6 +92,7 @@ export default function Contribute({ PATH_ROUTE }) {
               type="text"
               value={latitude}
               onChange={(e) => setLatitude(e.target.value)}
+              className="input input-bordered input-info w-full max-w-xs"
             />
           </label>
 
@@ -103,6 +102,7 @@ export default function Contribute({ PATH_ROUTE }) {
               type="text"
               value={longitude}
               onChange={(e) => setLongitude(e.target.value)}
+              className="input input-bordered input-info w-full max-w-xs"
             />
           </label>
 
@@ -110,7 +110,7 @@ export default function Contribute({ PATH_ROUTE }) {
             Submit
           </button>
         </form>
-      </main>
+      </div>
 
       <footer className={styles.footer}>Powered by Next.js</footer>
     </div>
