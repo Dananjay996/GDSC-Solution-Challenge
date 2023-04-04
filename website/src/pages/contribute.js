@@ -1,65 +1,56 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import styles from '../styles/contribute.module.css';
-
+import { useState } from "react";
+import Head from "next/head";
+import styles from "../styles/contribute.module.css";
 
 // const FormVal = require('form-data');
 
 // import {Storage} from '@google-cloud/storage';
 
+export default function Contribute({ PATH_ROUTE }) {
+  const [video, setVideo] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
-export default function Contribute({PATH_ROUTE}) {
-  const [video, setVideo] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-
-
-  async function fetchResponse(options,fileName){
-
-    
+  async function fetchResponse(options, fileName) {
     // const formData = new FormData();
     const formData = new FormData();
     console.log(formData);
 
-    console.log('file is : ',video);
-    formData.append('file',video);
+    console.log("file is : ", video);
+    formData.append("file", video);
 
-    console.log('new file name is:',fileName);
-    formData.append('newFileName',fileName);
+    console.log("new file name is:", fileName);
+    formData.append("newFileName", fileName);
 
-    console.log('options is: ',options);
-    formData.append('options',JSON.stringify(options));
-    
-   
+    console.log("options is: ", options);
+    formData.append("options", JSON.stringify(options));
+
     const headers = {};
 
-    headers['Content-type'] = 'multipart/form-data';
+    headers["Content-type"] = "multipart/form-data";
 
     for (var key of formData.entries()) {
-      console.log(key[0] + ', ' + key[1]);
+      console.log(key[0] + ", " + key[1]);
     }
 
-
-   
-    const response = await fetch('/api/GCSAPI',{
-      method : 'POST',
+    const response = await fetch("/api/GCSAPI", {
+      method: "POST",
       headers: headers,
-      body : formData,
-
+      body: formData,
     });
-    console.log('response is:', response);
-    console.log('data being sent');
+    console.log("response is:", response);
+    console.log("data being sent");
     const data = await response.json();
 
-    console.log('data result is: ',data.result);
+    console.log("data result is: ", data.result);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here, e.g. send data to server
     // console.log('event : ',event.target);
-    console.table(video,latitude,longitude);
-    console.log('submit event registered');
+    console.table(video, latitude, longitude);
+    console.log("submit event registered");
 
     const fileName = `${latitude}#${longitude}#.mp4`;
     // const sendFile = new File([video],fileName,{type : video.type});
@@ -72,13 +63,9 @@ export default function Contribute({PATH_ROUTE}) {
         contentType: video.type,
       },
     };
-    console.log('calling fetch response');
-    fetchResponse(options,fileName);
-
-
-    
-    
-};
+    console.log("calling fetch response");
+    fetchResponse(options, fileName);
+  };
 
   return (
     <div className={styles.container}>
@@ -93,26 +80,39 @@ export default function Contribute({PATH_ROUTE}) {
         <form onSubmit={handleSubmit}>
           <label>
             Video:
-            <input type="file" accept="video/*" onChange={(e) => setVideo(e.target.files[0])} />
+            <input
+              type="file"
+              accept="video/*"
+              onChange={(e) => setVideo(e.target.files[0])}
+              className="file-input w-full max-w-xs"
+            />
           </label>
 
           <label>
             Latitude:
-            <input type="text" value={latitude} onChange={(e) => setLatitude(e.target.value)} />
+            <input
+              type="text"
+              value={latitude}
+              onChange={(e) => setLatitude(e.target.value)}
+            />
           </label>
 
           <label>
             Longitude:
-            <input type="text" value={longitude} onChange={(e) => setLongitude(e.target.value)} />
+            <input
+              type="text"
+              value={longitude}
+              onChange={(e) => setLongitude(e.target.value)}
+            />
           </label>
 
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-info">
+            Submit
+          </button>
         </form>
       </main>
 
-      <footer className={styles.footer}>
-        Powered by Next.js
-      </footer>
+      <footer className={styles.footer}>Powered by Next.js</footer>
     </div>
   );
 }
