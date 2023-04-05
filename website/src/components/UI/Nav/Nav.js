@@ -1,6 +1,7 @@
 import React from "react";
 
 function Nav() {
+  const API_URL = 'https://seassfileupload-gx4wg3twdq-uc.a.run.app/';
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -12,7 +13,7 @@ function Nav() {
         <ul className="menu menu-horizontal ">
           <li>
             {/* <button className="btn btn-info" href="/contribute"> */}
-            <a href="/contribute" className="btn btn-info rounded-lg">
+            <a href={`${API_URL}`} className="btn btn-info rounded-lg">
               Contribute
             </a>
             {/* Contribute */}
